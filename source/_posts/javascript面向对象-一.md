@@ -1,5 +1,5 @@
 ---
-title: js继承的实现方法
+title: javascript面向对象(一)js继承的实现方法
 date: 2018-03-04 19:47:55
 tags:
 ---
