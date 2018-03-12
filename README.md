@@ -1,4 +1,4 @@
-(XhlHttpRequest)[https://github.com/wenqingxin/my-blog/blob/master/source/_posts/http协议.md]
+(XmlHttpRequest)[https://github.com/wenqingxin/my-blog/blob/master/source/_posts/http协议.md]
 错误监控
 页面性能优化
 js运行机制
@@ -8,7 +8,7 @@ js运行机制
 javascript面向对象(二)-new运算符的模拟实现
 javascript面向对象(一)js继承的实现方法
 原型、原型链
-(http协议)[https://github.com/wenqingxin/my-blog/blob/master/source/_posts/http协议.md]
+[http协议](https://github.com/wenqingxin/my-blog/blob/master/source/_posts/http协议.md)
 requestAnimationFrame写动画
 DOM事件总结
 css知识快餐(三)
