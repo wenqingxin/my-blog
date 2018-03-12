@@ -17,7 +17,7 @@ tags:
 ## 二、样式类别的权重
 在实际开发当中，某个元素的某个样式往往是多种上述类别的样式优先级的组合，那这种情况我们又如何确定样式的优先级呢？一般情况下，就是从左到右<font color="red">__计算样式权重的和，权重值大的优先级就高__</font>(更准确的做法请看第三点)。
 {% asset_img css_weight.jpg css样式权重 %}
-![img](/wenqingxin/my-blog/blob/master/source/_posts/css知识快餐-一/css_weight.jpg)
+![img](https://github.com/wenqingxin/my-blog/blob/master/source/_posts/css%E7%9F%A5%E8%AF%86%E5%BF%AB%E9%A4%90-%E4%B8%80/css_weight.jpg?raw=true)
 举个栗子：
 ``` css
 div.cls-p p.cls-c {
