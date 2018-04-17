@@ -11,7 +11,7 @@ tags:
 ## jsx的本质
 创建vdom的语法糖，通过babel编译成js代码
 ## jsx与vdom
-jsx变异后就是用React.createElement()方法创建vdom
+jsx编译后就是用React.createElement()方法创建vdom
 ## setState
 为什么是异步？
 当连续重复setState的时候，数据更新没有必要每次都去更新视图，react内部将这部分操作汇总起来，只对最后的数据进行渲染
