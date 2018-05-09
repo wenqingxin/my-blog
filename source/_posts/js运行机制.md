@@ -1,5 +1,5 @@
 ---
-title: js运行机制
+title: 浏览器js运行机制
 date: 2018-03-10 15:54:36
 tags:
 ---
@@ -38,16 +38,20 @@ foo();
 ## 三、任务队列
 任务队列存储回掉的函数，调用异步模块，异步模块完成执行达到回调函数触发条件的时候，会讲回调处理放到任务队列。
 任务队列分为两类
-1. 宏任务队列（macro task 每个异步模块都有对应的一个异步队列）
+1. 宏任务队列（macro task 每个异步模块任务源都有对应的一个异步队列）
+任务源：script（全局任务）, （setTimeout, setInterval, setImmediate）, I/O, UI rendering.
+队列执行规则：
+ 相同队列中的任务按照先进先出的顺序, 不同的队列按照提前设置的队列优先级来调用. 例如，用户代理可以有一个用于鼠标和键盘事件的任务队列（用户交互任务源），另一个用于其他任务。然后，用户代理75%概率调用键盘和鼠标事件任务队列，25%调用其他队列, 这样的话就保持界面响应而且不会饿死其他任务队列. 但是相同队列中的任务要按照先进先出的顺序。也就是说单独的任务队列中的任务总是按先进先出的顺序执行，但是不保证多个任务队列中的任务优先级，具体实现可能会交叉执行
 2. 微任务队列（micro task 只有一个）
-那么哪个任务会被分配到哪个队列呢？
-宏任务：script（全局任务）, setTimeout, setInterval, setImmediate, I/O, UI rendering.
-微任务：process.nextTick, Promise, Object.observer, MutationObserver.
+任务源： Promise, Object.observer, MutationObserver.
 
 ## 四、事件循环
-当函数栈里已经没有函数了，会在任务队列里取任务来执行，执行完毕后，发现没有函数了，又会在队列里拿出一个任务来执行。
-宏任务与微任务的执行顺序
-当一个宏任务队列执行完毕后就会执行微任务队列，比如下面的例子
+1. 执行完主执行线程中的任务。
+2. 取出Microtask Queue中任务执行直到清空。
+3. 取出Macrotask Queue中一个任务执行。
+4. 取出Microtask Queue中任务执行直到清空。
+5. 重复3和4。
+比如下面的例子
 ```javascript
 console.log('script start');
 setTimeout(function() {
